@@ -1,0 +1,19 @@
+{
+  "name": "budget",
+  "version": "0.0.0",
+  "authors": [
+    "Martyn Bissett <martynbissett@yahoo.co.uk>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "^4.7.0",
+    "foundation-sites": "^6.4.3"
+  }
+}

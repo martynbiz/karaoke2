@@ -1,0 +1,105 @@
+@import 'foundation.scss';
+
+@include foundation-everything;
+
+body {
+    font-family: "Josefin Sans";
+    color: $white;
+    background: darken($primary-color, 37%);
+}
+
+// FOUNDATION
+
+.top-bar {
+    border-bottom: 1px solid $dark-gray;
+}
+
+.pagination a {
+    background-color: $dark-gray;
+}
+
+
+
+// UTILS
+
+$spacing-y: 30px;
+
+.padding-y {
+    padding-top: $spacing-y;
+    padding-bottom: $spacing-y;
+}
+
+.padding-top {
+    padding-top: $spacing-y;
+}
+
+.padding-bottom {
+    padding-bottom: $spacing-y;
+}
+
+.margin-y {
+    margin-top: $spacing-y;
+    margin-bottom: $spacing-y;
+}
+
+.margin-top {
+    margin-top: $spacing-y;
+}
+
+.margin-bottom {
+    margin-bottom: $spacing-y;
+}
+
+
+// TOPBAR
+
+.top-bar .button {
+    margin-bottom: 0;
+}
+
+.list-header {
+    // font-weight: bold;
+}
+
+.songs-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.artists-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.song-tag-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+        display: inline-block;
+        margin-right: 10px;
+    }
+}
+
+.tag-button {
+    input {
+        display: none;
+
+        + label {
+            display: inline-block;
+            padding: 20px;
+            background: $dark-gray;
+            color: $light-gray;
+            width: 100%;
+            text-align: center;
+            margin: 0;
+        }
+
+        &:checked + label {
+            background: $primary-color;
+            color: $white;
+        }
+    }
+}

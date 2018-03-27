@@ -1,0 +1,35 @@
+<?php
+$language = $this->language;
+?>
+
+<?php $this->layout('layouts/console', [
+    'title' => $language->name,
+    'back_path' => $this->pathFor('console_languages'),
+]); ?>
+
+<?php $this->section('content') ?>
+    <div class="grid-x grid-padding-x margin-bottom">
+        <div class="small-12 cell">
+            <nav aria-label="You are here:" role="navigation">
+                <ul class="breadcrumbs">
+                    <li><a href="<?= $this->pathFor('console_home') ?>"><?= $this->translate('home') ?></a></li>
+                    <li><a href="<?= $this->pathFor('console_languages') ?>"><?= $this->translate('languages') ?></a></li>
+                    <li class="show-for-sr">
+                        <span class="show-for-sr">Current: </span> <?= $language->name ?>
+                    </li>
+                </ul>
+            </nav>
+
+            <h2><?= $language->name ?></h2>
+            <hr>
+            <?= $this->insert('console/partials/songs_list', [
+                'songs' => $this->songs,
+                'include_artist_name' => true,
+            ]) ?>
+        </div>
+    </div>
+    <?= $this->insert('console/partials/pagination', [
+        'page' => $this->page,
+        'total_pages' => $this->total_pages,
+    ]) ?>
+<?php $this->replace() ?>

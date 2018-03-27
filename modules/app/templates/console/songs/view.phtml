@@ -1,0 +1,39 @@
+<?php
+$song = $this->song;
+$artist = $song->artist;
+?>
+
+<?php $this->layout('layouts/console', [
+    'title' => $song->name,
+]); ?>
+
+<?php $this->section('content') ?>
+    <div class="grid-x grid-padding-x">
+        <div class="small-12 cell">
+            <nav aria-label="You are here:" role="navigation">
+                <ul class="breadcrumbs">
+                    <li><a href="<?= $this->pathFor('console_home') ?>"><?= $this->translate('home') ?></a></li>
+                    <li><a href="<?= $this->pathFor('console_songs') ?>"><?= $this->translate('songs') ?></a></li>
+                    <li><a href="<?= $this->pathFor('console_artists_view', ['artist_id' => $artist->id]) ?>"><?= $artist->name ?></a></li>
+                    <li class="show-for-sr">
+                        <span class="show-for-sr">Current: </span> <?= $song->name ?>
+                    </li>
+                </ul>
+            </nav>
+
+            <h2><?= $song->name ?></h2>
+            <p><?= $song->getMeta('summary') ?></p>
+            <ul class="song-tag-list">
+                <?php foreach ($song->tags()->where('is_valid', 1)->get() as $tag): ?>
+                    <li><a href="<?= $this->pathFor('console_tags_view', ['tag_id' => $tag->id]) ?>?back_path=<?= $this->pathFor('console_songs_view', ['song_id' => $song->id]) ?>" class="button"><?= $tag->name ?></a></li>
+                <?php endforeach ?>
+            </ul>
+            <hr>
+            <form action="<?= $this->pathFor('console_playlists_add_song', ['song_id' => $song->id]) ?>" method="post" id="songs_queue_form">
+                <input type="hidden" name="<?= $this->csrf_name ?>" value="<?= $this->csrf_value ?>">
+                <button name="song_id" value="<?= $song->id ?>" class="button large"><span class="fa fa-rss"></span> <?= $this->translate('add_to_queue') ?></button>
+            </form>
+            </ul>
+        </div>
+    </div>
+<?php $this->replace() ?>

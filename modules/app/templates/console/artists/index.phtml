@@ -1,0 +1,47 @@
+<?php $this->layout('layouts/console', [
+    'title' => 'Artists',
+    'back_path' => $this->pathFor('console_home'),
+]); ?>
+
+<?php $this->section('content') ?>
+    <div class="grid-x grid-padding-x margin-bottom">
+        <div class="small-12 cell">
+            <nav aria-label="You are here:" role="navigation">
+                <ul class="breadcrumbs">
+                    <li><a href="<?= $this->pathFor('console_home') ?>"><?= $this->translate('home') ?></a></li>
+                    <li>
+                        <span class="show-for-sr">Current: </span> <?= $this->translate('artists') ?>
+                    </li>
+                </ul>
+            </nav>
+
+            <form action="<?= $this->pathFor('console_artists') ?>" method="get">
+                <div class="input-group">
+                    <input class="input-group-field" name="query" type="text" value="<?= @$this->params['query'] ?>" placeholder="Artist name">
+                    <div class="input-group-button">
+                        <input type="submit" class="button" value="<?= $this->translate('search') ?>">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="artists-list">
+        <?php foreach ($this->groups as $letter => $artists): ?>
+            <?php if (!@$this->params['query']): ?>
+                <div class="grid-x grid-padding-x">
+                    <div class="small-12 cell artists-list__heading">
+                        <h3 class="list-header"><?= $letter ?></h3>
+                    </div>
+                </div>
+            <?php endif ?>
+            <div class="grid-x grid-padding-x margin-bottom">
+                <?php foreach ($artists as $artist): ?>
+                    <div class="small-4 cell artists-list__item">
+                        <a href="<?= $this->pathFor('console_artists_view', ['artist_id' => $artist->id]); ?>" class="button expanded large"><?= $artist->name ?></a>
+                    </div>
+                <?php endforeach ?>
+            </div>
+        <?php endforeach ?>
+    </div>
+<?php $this->replace() ?>

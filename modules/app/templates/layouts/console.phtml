@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Karaoke | <?= $this->title ?></title>
+
+        <?php $this->section('head') ?>
+        <link rel="stylesheet" type="text/css" href="/css/app.css">
+        <!-- <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet"> -->
+        <?php $this->stop() ?>
+
+        <?php if (APPLICATION_ENV != ENV_PRODUCTION) echo $this->debugbar->renderHead(); ?>
+    </head>
+
+    <body>
+        <div class="top-bar margin-bottom" data-sticky data-options="marginTop:0;">
+            <div class="top-bar-left">
+                <a href="<?= $this->pathFor('console_home') ?>" class="button large <?= $this->disable_home_button ? 'disabled' : '' ?>"><span class="fa fa-search"></span> <?= $this->translate('main_menu') ?></a>
+            </div>
+            <div class="top-bar-right">
+                <a href="<?= $this->pathFor('console_playlists_list_songs') ?>" class="button large <?php /*= ((int)$this->playlist->songs()->count() > 0) ? '' : 'disabled' */ ?>"><span class="fa fa-list"></span> <?= $this->translate('playlist') ?></a>
+            </div>
+        </div>
+
+        <div class="grid-container">
+            <div class="grid-x grid-padding-x margin-top">
+                <div class="small-12 cell">
+                    <?php if (isset($this->messages['success'])): ?>
+                        <div class="success callout">
+                            <?=$this->messages['success']; ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if (isset($this->messages['errors'])): ?>
+                        <div class="alert callout">
+                            <ul>
+                                <?php foreach ($this->messages['errors'] as $error): ?>
+                                <li><?= $error ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+
+            <?php $this->section('content') ?>
+                ...
+            <?php $this->stop() ?>
+        </div>
+
+        <?php $this->section('scripts') ?>
+            <script src="/js/app.js" type="text/javascript"></script>
+
+        <?php $this->stop() ?>
+
+        <?php if (APPLICATION_ENV != ENV_PRODUCTION) echo $this->debugbar->render(); ?>
+    </body>
+</html>

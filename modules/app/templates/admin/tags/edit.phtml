@@ -1,0 +1,25 @@
+<?php $this->layout('layouts/admin', [
+    'title' => 'Tags',
+]); ?>
+
+<?php $this->section('content') ?>
+    <form action="<?= $this->pathFor('admin_tags_update') ?>" method="post">
+        <input type="hidden" name="_METHOD" value="PUT"/>
+        <input type="hidden" name="<?= $this->csrf_name ?>" value="<?= $this->csrf_value ?>">
+
+        <div class="grid-x grid-padding-x">
+            <?php foreach ($this->tags as $tag): ?>
+                <div class="small-3 cell tag-button margin-bottom">
+                    <input type="checkbox" name="tag_ids[]" value="<?= $tag->id ?>" id="tag_<?= $tag->id ?>" <?= ($tag->is_valid) ? 'checked' : '' ?>>
+                    <label for="tag_<?= $tag->id ?>"><?= $tag->name ?></label>
+                </div>
+            <?php endforeach ?>
+        </div>
+        <div class="grid-x grid-padding-x margin-bottom">
+            <div class="small-12 cell margin-bottom">
+                <hr>
+                <button class="button large"><?= $this->translate('save') ?></button>
+            </div>
+        </div>
+    </form>
+<?php $this->replace() ?>

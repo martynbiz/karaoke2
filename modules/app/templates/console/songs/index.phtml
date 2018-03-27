@@ -1,0 +1,46 @@
+<?php $this->layout('layouts/console', [
+    'title' => 'Songs',
+    'back_path' => $this->pathFor('console_home'),
+]); ?>
+
+<?php $this->section('content') ?>
+    <div class="grid-x grid-padding-x">
+        <div class="small-12 cell">
+            <nav aria-label="You are here:" role="navigation">
+                <ul class="breadcrumbs">
+                    <li><a href="<?= $this->pathFor('console_home') ?>"><?= $this->translate('home') ?></a></li>
+                    <li>
+                        <span class="show-for-sr">Current: </span> <?= $this->translate('songs') ?>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="grid-x grid-padding-x margin-y">
+        <div class="small-12 cell">
+            <form action="<?= $this->pathFor('console_songs') ?>" method="get">
+                <input type="hidden" name="order" value="<?= @$this->params['order'] ?>"/>
+                <input type="hidden" name="dir" value="<?= @$this->params['dir'] ?>">
+
+                <div class="input-group">
+                    <input class="input-group-field" name="query" type="text" value="<?= @$this->params['query'] ?>" placeholder="Song name">
+                    <div class="input-group-button">
+                        <input type="submit" class="button" value="<?= $this->translate('search') ?>">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="grid-x grid-padding-x">
+        <div class="small-12 cell">
+            <?= $this->insert('console/partials/songs_list', [
+                'songs' => $this->songs,
+                'include_artist_name' => true,
+            ]) ?>
+        </div>
+    </div>
+    <?= $this->insert('console/partials/pagination', [
+        'page' => $this->page,
+        'total_pages' => $this->total_pages,
+    ]) ?>
+<?php $this->replace() ?>

@@ -1,0 +1,13 @@
+<ul class="songs-list">
+    <?php foreach ($this->songs as $song): ?>
+        <li>
+            <a href="<?= $this->pathFor('console_songs_view', ['song_id' => $song->id]) ?>" class="button expanded large">
+                <?php if ($this->include_artist_name): ?>
+                    <?= $song->artist->name ?> - <strong><?= $song->name ?></strong>
+                <?php else: ?>
+                    <?= $song->name ?>
+                <?php endif ?>
+            </a>
+        </li>
+    <?php endforeach ?>
+</ul>

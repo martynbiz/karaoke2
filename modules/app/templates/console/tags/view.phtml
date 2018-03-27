@@ -1,0 +1,30 @@
+<?php $this->layout('layouts/console', [
+    'title' => $this->tag->name,
+    'back_path' => (@$this->params['back_path']) ? $this->params['back_path'] : $this->pathFor('console_tags'),
+]); ?>
+
+<?php $this->section('content') ?>
+    <div class="grid-x grid-padding-x">
+        <div class="small-12 cell">
+            <nav aria-label="You are here:" role="navigation">
+                <ul class="breadcrumbs">
+                    <li><a href="<?= $this->pathFor('console_home') ?>"><?= $this->translate('home') ?></a></li>
+                    <li><a href="<?= $this->pathFor('console_tags') ?>"><?= $this->translate('tags') ?></a></li>
+                    <li class="show-for-sr">
+                        <span class="show-for-sr">Current: </span> <?= $this->tag->name ?>
+                    </li>
+                </ul>
+            </nav>
+
+            <h2><?= $this->tag->name ?></h2>
+        </div>
+    </div>
+    <div class="grid-x grid-padding-x">
+        <div class="small-12 cell">
+            <?= $this->insert('console/partials/songs_list', [
+                'songs' => $this->songs,
+                'include_artist_name' => true,
+            ]) ?>
+        </div>
+    </div>
+<?php $this->replace() ?>

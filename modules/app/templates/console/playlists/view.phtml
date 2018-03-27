@@ -1,0 +1,34 @@
+<?php $this->layout('layouts/console', [
+    'title' => 'Playlist',
+]); ?>
+
+<?php $this->section('content') ?>
+    <div class="grid-x grid-padding-x margin-top">
+        <div class="small-12 cell">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="40%"><?= $this->translate('song') ?></th>
+                        <th width="40%"><?= $this->translate('artist') ?></th>
+                        <th width="20%"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($this->songs as $i => $song): $isFirstSong = ($i==0);  ?>
+                        <tr>
+                            <td><?php if ($isFirstSong): ?><span class="fa fa-play"></span><?php endif ?> <?= $song->name ?></td>
+                            <td><?= $song->artist->name ?></td>
+                            <td class="text-center">
+                                <?php if ($isFirstSong): ?>
+                                    <a href="<?= $this->pathFor('console_playlists_delete_song') ?>?song_id=<?= $song->id ?>" class="button alert large"><span class="fa fa-step-forward "></span> <?= $this->translate('skip') ?></a>
+                                <?php else: ?>
+                                    <a href="<?= $this->pathFor('console_playlists_delete_song') ?>?song_id=<?= $song->id ?>" class="button large"><span class="fa fa-close"></span> <?= $this->translate('remove') ?></a>
+                                <?php endif ?>
+                            </td>
+                        </tr>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+<?php $this->replace() ?>

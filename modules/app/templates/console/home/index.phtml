@@ -1,0 +1,29 @@
+<?php $this->layout('layouts/console', [
+    'title' => 'Home',
+    'disable_home_button' => true,
+]); ?>
+
+<?php $this->section('content') ?>
+    <div class="grid-x grid-padding-x">
+        <div class="small-12 cell">
+            <h2 class="text-center"><?= $this->translate('main_menu') ?></h2>
+        </div>
+    </div>
+    <div class="grid-x grid-padding-x">
+        <div class="small-6 cell">
+            <a href="<?= $this->pathFor('console_songs') ?>" class="button large expanded"><span class="fa fa-music"></span> <?= $this->translate('songs_button') ?></a>
+        </div>
+        <div class="small-6 cell">
+            <a href="<?= $this->pathFor('console_artists') ?>" class="button large expanded"><span class="fa fa-users"></span> <?= $this->translate('artists_button') ?></a>
+        </div>
+        <div class="small-6 cell">
+            <a href="<?= $this->pathFor('console_tags') ?>" class="button large expanded"><span class="fa fa-tag"></span> <?= $this->translate('genre_button') ?></a>
+        </div>
+        <div class="small-6 cell">
+            <a href="<?= $this->pathFor('console_languages') ?>" class="button large expanded"><span class="fa fa-globe"></span> <?= $this->translate('languages_button') ?></a>
+        </div>
+        <div class="small-6 cell">
+            <a href="<?= $this->pathFor('console_songs_most_requested') ?>" class="button large expanded"><span class="fa fa-star"></span> <?= $this->translate('most_requested') ?></a>
+        </div>
+    </div>
+<?php $this->replace() ?>

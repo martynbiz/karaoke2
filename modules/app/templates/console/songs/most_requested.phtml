@@ -1,0 +1,32 @@
+<?php $this->layout('layouts/console', [
+    'title' => $this->translate('most_requested'),
+]); ?>
+
+<?php $this->section('content') ?>
+    <div class="grid-x grid-padding-x">
+        <div class="small-12 cell">
+            <nav aria-label="You are here:" role="navigation">
+                <ul class="breadcrumbs">
+                    <li><a href="<?= $this->pathFor('console_home') ?>"><?= $this->translate('home') ?></a></li>
+                    <li><a href="<?= $this->pathFor('console_songs') ?>"><?= $this->translate('songs') ?></a></li>
+                    <li>
+                        <span class="show-for-sr">Current: </span> <?= $this->translate('most_requested') ?>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="grid-x grid-padding-x">
+        <div class="small-12 cell">
+            <ul class="songs-list">
+                <?php foreach ($this->songs as $i => $song): ?>
+                    <li>
+                        <a href="<?= $this->pathFor('console_songs_view', ['song_id' => $song->id]) ?>" class="button expanded large">
+                            <?= ($i+1) ?>. <?= $song->artist->name ?> - <strong><?= $song->name ?></strong>
+                        </a>
+                    </li>
+                <?php endforeach ?>
+            </ul>
+        </div>
+    </div>
+<?php $this->replace() ?>
