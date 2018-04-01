@@ -1,1 +1,1 @@
-{"virtualbox":{"/var/www/karaoke2":{"owner":"ubuntu","group":"www-data","guestpath":"/var/www/karaoke2","hostpath":"/home/martyn/Sites/slim-module-karaoke","disabled":false,"__vagrantfile":true}}}
+{"virtualbox":{"/var/www/karaoke2":{"owner":"ubuntu","group":"www-data","guestpath":"/var/www/karaoke2","hostpath":"/home/martyn/Sites/karaoke2","disabled":false,"__vagrantfile":true}}}

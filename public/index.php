@@ -1,6 +1,6 @@
 <?php
 
-require_once 'prepare.php';
+require_once 'bootstrap.php';
 
 session_start();
 

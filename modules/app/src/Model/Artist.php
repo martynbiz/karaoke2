@@ -3,9 +3,11 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\Traits\GetMetaByName;
+
 class Artist extends Model
 {
-    use App\Traits\Meta;
+    use GetMetaByName;
 
     /**
     * @var array

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit backupGlobals="false"
          backupStaticAttributes="false"
-         bootstrap="modules/Application/src/Test/bootstrap.php"
+         bootstrap="tests/bootstrap.php"
          colors="true"
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
@@ -11,13 +11,10 @@
          syntaxCheck="false">
     <testsuites>
         <testsuite name="Application Test Suite">
-            <directory>./modules/Application/src/Test</directory>
-        </testsuite>
-        <testsuite name="Auth Test Suite">
-            <directory>./modules/Auth/src/Test</directory>
-        </testsuite>
-        <testsuite name="Blog Test Suite">
-            <directory>./modules/Blog/src/Test</directory>
+            <directory>./tests</directory>
         </testsuite>
     </testsuites>
+    <php>
+        <server name="REQUEST_URI" value="/books" />
+    </php>
 </phpunit>

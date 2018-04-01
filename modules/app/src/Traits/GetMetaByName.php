@@ -1,7 +1,7 @@
 <?php
 namespace App\Traits;
 
-trait Meta
+trait GetMetaByName
 {
     public function getMeta($name)
     {

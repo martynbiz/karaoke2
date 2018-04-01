@@ -1,6 +1,6 @@
 <?php
 
-require_once 'public/prepare.php';
+require_once 'public/bootstrap.php';
 
 $modules = $settings['settings']['module_initializer']['modules'];
 
