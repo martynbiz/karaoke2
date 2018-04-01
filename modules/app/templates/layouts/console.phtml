@@ -11,7 +11,7 @@
         <!-- <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet"> -->
         <?php $this->stop() ?>
 
-        <?php if (APPLICATION_ENV != ENV_PRODUCTION) echo $this->debugbar->renderHead(); ?>
+        <?php //if (APPLICATION_ENV != ENV_PRODUCTION) echo $this->debugbar->renderHead(); ?>
     </head>
 
     <body>
@@ -21,6 +21,12 @@
             </div>
             <div class="top-bar-right">
                 <a href="<?= $this->pathFor('console_playlists_list_songs') ?>" class="button large <?php /*= ((int)$this->playlist->songs()->count() > 0) ? '' : 'disabled' */ ?>"><span class="fa fa-list"></span> <?= $this->translate('playlist') ?></a>
+
+                <?php if ($this->currentUser): ?>
+                    <a href="<?= $this->pathFor('auth_session_logout') ?>" class="button large <?php /*= ((int)$this->playlist->songs()->count() > 0) ? '' : 'disabled' */ ?>"><span class="fa fa-sign-out"></span> <?= $this->translate('logout') ?></a>
+                <?php else: ?>
+                    <a href="<?= $this->pathFor('auth_session_login') ?>" class="button large <?php /*= ((int)$this->playlist->songs()->count() > 0) ? '' : 'disabled' */ ?>"><span class="fa fa-sign-in"></span> <?= $this->translate('login') ?></a>
+                <?php endif ?>
             </div>
         </div>
 
@@ -55,6 +61,6 @@
 
         <?php $this->stop() ?>
 
-        <?php if (APPLICATION_ENV != ENV_PRODUCTION) echo $this->debugbar->render(); ?>
+        <?php //if (APPLICATION_ENV != ENV_PRODUCTION) echo $this->debugbar->render(); ?>
     </body>
 </html>

@@ -7,8 +7,8 @@ return [
             'modules' => [
                 'app' => 'App\\Module',
                 'martynbiz-core' => 'MartynBiz\\Slim\\Module\\Core\\Module',
-                // 'martynbiz-auth' => 'MartynBiz\\Slim\\Module\\Auth\\Module',
-                // 'martynbiz-blog' => 'MartynBiz\\Slim\\Module\\Blog\\Module',
+                'martynbiz-auth' => 'MartynBiz\\Slim\\Module\\Auth\\Module',
+                'martynbiz-register' => 'MartynBiz\\Slim\\Module\\Register\\Module',
             ],
         ],
     ],

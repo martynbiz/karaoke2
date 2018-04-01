@@ -1,3 +1,19 @@
+TODO
+
+auth modules
+- split up login/register (martynbiz-auth, martynbiz-register)
+- move folder into vendor/../martynbiz/slim-module-auth/modules
+- register send email (disabled)
+- slim/csrf
+- add to packagist with tags
+- give settings namespace e.g. martynbiz-auth => [...], translations too
+- how to handle translations in vendor/../slim-module-xxx/src
+- what to do with db files??
+
+build skeleton app
+write tests: csrf,
+test app with media/ folder
+
 # My Homepage #
 
 This is a Slim 3 application. In addition, it uses martynbiz/slim-module library
@@ -20,7 +36,7 @@ and will require a virtual host.
 TODO
 
 merge modules/app into modules/martynbiz-core (rename martynbiz-app?)
-write 
+write
 
 build a japantravel port with slim-module-blog
 * build homepage

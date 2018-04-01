@@ -4,6 +4,7 @@ namespace App;
 use Slim\App;
 use Slim\Container;
 use MartynBiz\Slim\Module\ModuleInterface;
+use MartynBiz\Slim\Module\Auth;
 
 class Module implements ModuleInterface
 {
@@ -221,6 +222,9 @@ class Module implements ModuleInterface
                 });
             });
 
-        });//->add(new Middleware\Csrf($container));
+        })
+        ->add( new Auth\Middleware\RememberMe($container) )
+        ->add( new Auth\Middleware\RequireAuth($container) );
+        // ->add(new Core\Middleware\Csrf($container));
     }
 }
