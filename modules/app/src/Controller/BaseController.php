@@ -2,20 +2,22 @@
 namespace App\Controller;
 
 use Slim\Container;
-use App\Model\Transaction;
+use MartynBiz\Slim\Module\Auth\Traits\GetCurrentUser;
 use App\Model\Song;
 
 class BaseController
 {
+    use GetCurrentUser;
+
     /**
      * @var Slim\Container
      */
     protected $container;
 
-    /**
-     * @var App\Model\User
-     */
-    protected $currentUser;
+    // /**
+    //  * @var App\Model\User
+    //  */
+    // protected $currentUser;
 
 
     //
@@ -138,20 +140,20 @@ class BaseController
         return $playlist;
     }
 
-    /**
-     * Get the current sign in user user
-     * @param Request $request Not really needed here, api uses it though
-     * @return User|null
-     */
-    protected function getCurrentUser()
-    {
-        // cache current user as a property
-        if (! $this->currentUser) {
-            $container = $this->getContainer();
-            $attributes = $container->get('martynbiz-auth.auth')->getAttributes();
-            $this->currentUser =  $container->get('model.user')->where('email', $attributes['email'])->first();
-        }
-
-        return $this->currentUser;
-    }
+    // /**
+    //  * Get the current sign in user user
+    //  * @param Request $request Not really needed here, api uses it though
+    //  * @return User|null
+    //  */
+    // protected function getCurrentUser()
+    // {
+    //     // cache current user as a property
+    //     if (! $this->currentUser) {
+    //         $container = $this->getContainer();
+    //         $attributes = $container->get('martynbiz-auth.auth')->getAttributes();
+    //         $this->currentUser =  $container->get('model.user')->where('email', $attributes['email'])->first();
+    //     }
+    //
+    //     return $this->currentUser;
+    // }
 }
