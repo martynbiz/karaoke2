@@ -11,5 +11,10 @@ return [
                 'martynbiz-register' => 'MartynBiz\\Slim\\Module\\Register\\Module',
             ],
         ],
+
+        'song_files' => [
+            'path_pattern' => '/^.*\/(.*)\/(.*)\/(.*)\..*?$/',
+            'api_key' => '73a4c2716ad6250f92d0210140e47a0c',
+        ],
     ],
 ];

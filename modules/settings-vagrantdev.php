@@ -14,7 +14,7 @@ return [
         ],
 
         'song_files' => [
-            'parent_dir' => '/var/www/karaoke/public/media',
+            'parent_dir' => '/var/www/karaoke2/public/media',
         ],
     ],
 ];

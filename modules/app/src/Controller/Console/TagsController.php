@@ -32,7 +32,7 @@ class TagsController extends BaseController
         $tag = $container->get('model.tag')->findOrFail((int)$args['tag_id']);
 
         return $this->render('console/tags/view', [
-            'artist' => $artist,
+            // 'artist' => $artist,
             'songs' => $tag->songs,
             'tag' => $tag,
             'params' => $params,

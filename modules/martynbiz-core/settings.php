@@ -9,6 +9,7 @@ return [
                 'martynbiz-core' => APPLICATION_PATH . '/modules/martynbiz-core/templates',
             ],
             'ext' => 'phtml',
+            'autoescape' => false,
         ],
 
         // Monolog settings

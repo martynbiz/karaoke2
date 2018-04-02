@@ -5,8 +5,18 @@ use Tests\Functional\BaseTestCase;
 
 class SongsControllerTest extends BaseTestCase
 {
+    public function testIndexRedirectsWhenNotLoggedIn()
+    {
+        $response = $this->runApp('GET', '/console/songs');
+
+        // assertions
+        $this->assertEquals(302, $response->getStatusCode());
+    }
+
     public function testIndex()
     {
+        $this->login($this->user);
+
         $response = $this->runApp('GET', '/console/songs');
 
         // assertions
@@ -17,6 +27,8 @@ class SongsControllerTest extends BaseTestCase
 
     public function testIndexWithValidQuery()
     {
+        $this->login($this->user);
+
         $response = $this->runApp('GET', '/console/songs?query=mile');
 
         // assertions
@@ -27,6 +39,8 @@ class SongsControllerTest extends BaseTestCase
 
     public function testIndexWithInvalidQuery()
     {
+        $this->login($this->user);
+
         $response = $this->runApp('GET', '/console/songs?query=idontexist');
 
         // assertions
@@ -37,6 +51,8 @@ class SongsControllerTest extends BaseTestCase
 
     public function testIndexWithLimitQuery()
     {
+        $this->login($this->user);
+
         $response = $this->runApp('GET', '/console/songs?limit=1');
 
         // assertions
@@ -45,8 +61,18 @@ class SongsControllerTest extends BaseTestCase
         $this->assertQueryCount('.songs-list li', 1, (string)$response->getBody());
     }
 
+    public function testViewRedirectsWhenNotLoggedIn()
+    {
+        $response = $this->runApp('GET', '/console/songs/1');
+
+        // assertions
+        $this->assertEquals(302, $response->getStatusCode());
+    }
+
     public function testView()
     {
+        $this->login($this->user);
+
         $response = $this->runApp('GET', '/console/songs/1');
 
         // assertions
