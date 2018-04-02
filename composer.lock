@@ -994,7 +994,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/martynbiz/slim-module-auth.git",
-                "reference": "fd4aa7acbaacff5c6ec14cdd65d729ddd734b3d7"
+                "reference": "fddcf90dd5e8544b0f3d50d639b3d17c7212bf21"
             },
             "require": {
                 "martynbiz/slim-module": "dev-master",
@@ -1025,7 +1025,7 @@
                 "modules",
                 "slim"
             ],
-            "time": "2018-04-01 20:53:14"
+            "time": "2018-04-02 19:41:15"
         },
         {
             "name": "martynbiz/slim-module-core",
@@ -1033,7 +1033,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/martynbiz/slim-module-core.git",
-                "reference": "3f350548349848512131d44c4414c564fdd863e5"
+                "reference": "0262c247f6f5c8fe04919fb59128f8d8f3740cc9"
             },
             "require": {
                 "aura/session": "^2.0",
@@ -1079,7 +1079,7 @@
                 "modules",
                 "slim"
             ],
-            "time": "2018-04-01 23:25:51"
+            "time": "2018-04-02 19:46:50"
         },
         {
             "name": "martynbiz/slim-module-register",
