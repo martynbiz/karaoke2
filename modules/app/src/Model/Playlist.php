@@ -17,4 +17,9 @@ class Playlist extends Model
     {
         return $this->belongsToMany('App\\Model\\Song')->withTimestamps();
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\\Model\\User'); //, 'user_id');
+    }
 }

@@ -15,11 +15,15 @@ class CreatePlaylistsTable extends AbstractMigration
         ));
 
         $table->addColumn('name', 'string', array( 'limit' => 64 ));
+        $table->addColumn('user_id', 'integer', array( 'null' => true ));
 
         // timestamps
         $table->addColumn('created_at', 'datetime');
         $table->addColumn('updated_at', 'datetime', array( 'null' => true ));
         $table->addColumn('deleted_at', 'datetime', array( 'null' => true ));
+
+        $table->addForeignKey('user_id', 'users', 'id', array('delete'=> 'SET_NULL', 'update'=> 'NO_ACTION'));
+        $table->addIndex('user_id');
 
         $table->save();
 

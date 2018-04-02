@@ -125,15 +125,33 @@ class BaseController
     protected function getCurrentPlaylist()
     {
         $container = $this->getContainer();
+        $currentUser = $this->getCurrentUser();
 
         // get the current playlist, or create a new one
         // as we're just dealing with a single session we'll just pull the first one
-        if (!$playlist = $container->get('model.playlist')->first()) {
-            $playlist = $container->get('model.playlist')->create([
+        if (!$playlist = $currentUser->playlists()->first()) {
+            $playlist = $currentUser->playlists()->create([
                 'name' => uniqid(), // this ought to be ensured for uniqueness
             ]);
         }
 
         return $playlist;
+    }
+
+    /**
+     * Get the current sign in user user
+     * @param Request $request Not really needed here, api uses it though
+     * @return User|null
+     */
+    protected function getCurrentUser()
+    {
+        // cache current user as a property
+        if (! $this->currentUser) {
+            $container = $this->getContainer();
+            $attributes = $container->get('martynbiz-auth.auth')->getAttributes();
+            $this->currentUser =  $container->get('model.user')->where('email', $attributes['email'])->first();
+        }
+
+        return $this->currentUser;
     }
 }

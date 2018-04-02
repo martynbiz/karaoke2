@@ -13,7 +13,7 @@ class HomeControllerTest extends BaseTestCase
         $this->assertEquals(302, $response->getStatusCode());
     }
 
-    public function testGetIndexWhenLoggedIn()
+    public function testGetIndex()
     {
         $this->login($this->user);
 

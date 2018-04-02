@@ -162,6 +162,11 @@ class Module implements ModuleInterface
         $container['model.playlist'] = function($c) {
             return new \App\Model\Playlist();
         };
+
+        // we'll replace auth's user with app's
+        $container['model.user'] = function($c) {
+            return new \App\Model\User();
+        };
     }
 
     /**
