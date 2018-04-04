@@ -13,6 +13,30 @@ class Module implements ModuleInterface
      */
     public function initDependencies(Container $container)
     {
+        $container['events'] = function($c) {
+            return new \App\EventDispatcher();
+        };
+
+        // this is so we can access it during event handlers, and in the controller
+        $container['playlist'] = function($c) {
+
+            // auth user doesn't have playlist, we need app.model.user for that
+            // but we'll use auth to get the user id at least
+            $authUser = $c['martynbiz-auth.auth']->getCurrentUser();
+
+            $currentUser = $c['model.user']->find( $authUser->id );
+
+            // get the current playlist, or create a new one
+            // as we're just dealing with a single session we'll just pull the first one
+            if (!$playlist = $currentUser->playlists()->first()) {
+                $playlist = $currentUser->playlists()->create([
+                    'name' => uniqid(), // this ought to be ensured for uniqueness
+                ]);
+            }
+
+            return $playlist;
+        };
+
         // Models
 
         $container['model.song'] = function($c) {
@@ -35,7 +59,8 @@ class Module implements ModuleInterface
             return new \App\Model\Playlist();
         };
 
-        // we'll replace auth's user with app's
+        // we'll replace auth's user with app's as we wanna add custom methods
+        // e.g. playlists()
         $container['model.user'] = function($c) {
             return new \App\Model\User();
         };
@@ -103,5 +128,12 @@ class Module implements ModuleInterface
         ->add( new Auth\Middleware\RememberMe($container) )
         ->add( new Auth\Middleware\RequireAuth($container) );
         // ->add(new Core\Middleware\Csrf($container));
+
+
+        // TODO move this somewhere else
+        $container = $app->getContainer();
+        $container['events']->registerEvent("core:rendering", function(&$file, &$data) use ($container) {
+            $data['playlist'] = $container['playlist'];
+        });
     }
 }

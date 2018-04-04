@@ -1,6 +1,9 @@
 TODO
 
 auth modules
+- move event dispatcher to martynbiz/php-event-dispatcher
+- copy files (settings, templates, tests, db files)
+- we need a finalize method in modules (e.g. register events )
 - split up login/register (martynbiz-auth, martynbiz-register)
 - move folder into vendor/../martynbiz/slim-module-auth/modules
 - register send email (disabled)
