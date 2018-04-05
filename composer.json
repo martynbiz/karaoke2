@@ -23,6 +23,14 @@
 	    {
             "url": "https://github.com/martynbiz/slim-module-blog.git",
             "type": "git"
+        },
+	    {
+            "url": "https://github.com/martynbiz/php-events.git",
+            "type": "git"
+        },
+	    {
+            "url": "https://github.com/martynbiz/php-translate-tool.git",
+            "type": "git"
         }
     ],
     "require": {

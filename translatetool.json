@@ -1,8 +1,8 @@
 {
     "src": [
-        "app"
+        "modules"
     ],
-    "dest": "app/languages/{lang}.php",
+    "dest": "modules/app/languages/{lang}.php",
     "pattern": [
         "/translate\\s*\\(\\s*[\\'|\\\"]([A-Za-z0-9_\\-\\.]*)[\\'|\\\"]/",
         "/plural\\s*\\(\\s*[\\'|\\\"]([A-Za-z0-9_\\-\\.]*)[\\'|\\\"]/"

@@ -13,10 +13,6 @@ class Module implements ModuleInterface
      */
     public function initDependencies(Container $container)
     {
-        $container['events'] = function($c) {
-            return new \App\EventDispatcher();
-        };
-
         // this is so we can access it during event handlers, and in the controller
         $container['playlist'] = function($c) {
 
@@ -128,12 +124,5 @@ class Module implements ModuleInterface
         ->add( new Auth\Middleware\RememberMe($container) )
         ->add( new Auth\Middleware\RequireAuth($container) );
         // ->add(new Core\Middleware\Csrf($container));
-
-
-        // TODO move this somewhere else
-        $container = $app->getContainer();
-        $container['events']->registerEvent("core:rendering", function(&$file, &$data) use ($container) {
-            $data['playlist'] = $container['playlist'];
-        });
     }
 }
