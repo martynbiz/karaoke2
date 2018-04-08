@@ -1073,7 +1073,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/martynbiz/slim-module-auth.git",
-                "reference": "0a2f24eb098a170599f3d7895708dcc2d66c5025"
+                "reference": "ad479ac2cd8ee09f4797795445c82dcaf49937a4"
             },
             "require": {
                 "martynbiz/slim-module": "dev-master",
@@ -1104,7 +1104,7 @@
                 "modules",
                 "slim"
             ],
-            "time": "2018-04-05 22:07:09"
+            "time": "2018-04-08 21:02:42"
         },
         {
             "name": "martynbiz/slim-module-core",
@@ -1112,7 +1112,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/martynbiz/slim-module-core.git",
-                "reference": "3dd61823304904633e3359f6feca6ba7e0931f29"
+                "reference": "7f6f9a9a129b932b983c2b725f8e8ba6e80d62f8"
             },
             "require": {
                 "aura/session": "^2.0",
@@ -1159,7 +1159,7 @@
                 "modules",
                 "slim"
             ],
-            "time": "2018-04-05 22:06:34"
+            "time": "2018-04-08 21:02:12"
         },
         {
             "name": "martynbiz/slim-module-register",
@@ -1975,7 +1975,7 @@
         },
         {
             "name": "symfony/config",
-            "version": "v3.4.7",
+            "version": "v3.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
@@ -2038,7 +2038,7 @@
         },
         {
             "name": "symfony/console",
-            "version": "v3.4.7",
+            "version": "v3.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
@@ -2107,7 +2107,7 @@
         },
         {
             "name": "symfony/debug",
-            "version": "v3.4.7",
+            "version": "v3.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
@@ -2163,7 +2163,7 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v3.4.7",
+            "version": "v3.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
@@ -2271,7 +2271,7 @@
         },
         {
             "name": "symfony/translation",
-            "version": "v3.4.7",
+            "version": "v3.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
@@ -2339,16 +2339,16 @@
         },
         {
             "name": "symfony/var-dumper",
-            "version": "v3.4.7",
+            "version": "v3.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "6f502127b1bb85f7f30f8bc1fb60570a10431863"
+                "reference": "951643091b39a6fd40fce56cd16e21e12bef3feb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/6f502127b1bb85f7f30f8bc1fb60570a10431863",
-                "reference": "6f502127b1bb85f7f30f8bc1fb60570a10431863",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/951643091b39a6fd40fce56cd16e21e12bef3feb",
+                "reference": "951643091b39a6fd40fce56cd16e21e12bef3feb",
                 "shasum": ""
             },
             "require": {
@@ -2404,11 +2404,11 @@
                 "debug",
                 "dump"
             ],
-            "time": "2018-04-03T05:22:50+00:00"
+            "time": "2018-04-03T20:34:11+00:00"
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.4.7",
+            "version": "v3.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
@@ -4000,7 +4000,7 @@
         },
         {
             "name": "symfony/css-selector",
-            "version": "v3.4.7",
+            "version": "v3.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
@@ -4053,7 +4053,7 @@
         },
         {
             "name": "symfony/dom-crawler",
-            "version": "v3.4.7",
+            "version": "v3.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
