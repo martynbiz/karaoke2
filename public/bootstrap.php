@@ -91,7 +91,7 @@ $appSettings = require APPLICATION_PATH . '/modules/settings.php';
 $moduleSettings = [];
 foreach (array_keys($appSettings['settings']['modules']) as $dir) {
     if ($path = realpath($appSettings['settings']['folders']['modules'] . $dir . '/settings.php')) {
-        $moduleSettings = array_merge_recursive($moduleSettings, require $path);
+        $moduleSettings = array_replace_recursive($moduleSettings, require $path);
     }
 }
 
@@ -102,5 +102,5 @@ if ($path = realpath(APPLICATION_PATH . '/modules/settings-' . APPLICATION_ENV .
 }
 
 // Instantiate the app
-$settings = array_merge_recursive($moduleSettings, $appSettings, $envSettings);
+$settings = array_replace_recursive($moduleSettings, $appSettings, $envSettings);
 $app = new Slim\App($settings);
