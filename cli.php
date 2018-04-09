@@ -2,39 +2,48 @@
 
 require_once 'public/bootstrap.php';
 
-$modules = $settings['settings']['module_initializer']['modules'];
+$modules = $settings['settings']['modules'];
 
-switch ($argv[1]) {
+$command = $argv[1];
+$moduleName = @$argv[2]; // optional
+
+switch ($command) {
     case 'modules:install':
-        $moduleToInstall = @$argv[2];
-        if ($moduleToInstall) {
-            $moduleClassName = $modules[$moduleToInstall];
-            $module = new $moduleClassName();
-            if (method_exists($module, 'copyFiles')) {
-                $module->copyFiles($settings['settings']['modules_dir']);
+        if ($moduleName) {
+            if (isset($modules[$moduleName])) {
+                $moduleClassName = $modules[$moduleName];
+                $module = new $moduleClassName();
+                if (method_exists($module, 'copyFiles')) {
+                    $module->copyFiles($settings['settings']['folders']);
+                }
+            } else {
+                echo "$moduleName module not found\n";
             }
         } else {
             foreach($modules as $name => $moduleClassName) {
                 $module = new $moduleClassName();
                 if (method_exists($module, 'copyFiles')) {
-                    $module->copyFiles($settings['settings']['modules_dir']);
+                    $module->copyFiles($settings['settings']['folders']);
                 }
             }
         }
         break;
     case 'modules:remove':
-        $moduleToRemove = @$argv[2];
-        if ($moduleToRemove) {
-            $moduleClassName = $modules[$moduleToRemove];
-            $module = new $moduleClassName();
-            if (method_exists($module, 'removeFiles')) {
-                $module->removeFiles($settings['settings']['modules_dir']);
+        if ($moduleName) {
+            if (isset($modules[$moduleName])) {
+                $moduleClassName = $modules[$moduleName];
+                $module = new $moduleClassName();
+                if (method_exists($module, 'removeFiles')) {
+                    $module->removeFiles($settings['settings']['folders']);
+                }
+            } else {
+                echo "$moduleName module not found\n";
             }
         } else {
             foreach($modules as $name => $moduleClassName) {
                 $module = new $moduleClassName();
                 if (method_exists($module, 'removeFiles')) {
-                    $module->removeFiles($settings['settings']['modules_dir']);
+                    $module->removeFiles($settings['settings']['folders']);
                 }
             }
         }

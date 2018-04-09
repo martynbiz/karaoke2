@@ -17,15 +17,15 @@
     <body>
         <div class="top-bar margin-bottom" data-sticky data-options="marginTop:0;">
             <div class="top-bar-left">
-                <a href="<?= $this->pathFor('console_home') ?>" class="button large <?= $this->disable_home_button ? 'disabled' : '' ?>"><span class="fa fa-search"></span> <?= $this->translate('main_menu') ?></a>
+                <a href="<?= $this->pathFor('console_home') ?>" class="button large glossy-button glossy-button--primary <?= $this->disable_home_button ? 'disabled' : '' ?>"><span class="fa fa-search"></span> <?= $this->translate('main_menu') ?></a>
             </div>
             <div class="top-bar-right">
-                <a href="<?= $this->pathFor('console_playlists_list_songs') ?>" class="button large <?php /*= ((int)$this->playlist->songs()->count() > 0) ? '' : 'disabled' */ ?>"><span class="fa fa-list"></span> <?= $this->translate('playlist') ?></a>
+                <a href="<?= $this->pathFor('console_playlists_list_songs') ?>" class="button large glossy-button glossy-button--primary <?php /*= ((int)$this->playlist->songs()->count() > 0) ? '' : 'disabled' */ ?>"><span class="fa fa-list"></span> <?= $this->translate('playlist') ?></a>
 
                 <?php if ($this->currentUser): ?>
-                    <a href="<?= $this->pathFor('auth_session_logout') ?>" class="button large <?php /*= ((int)$this->playlist->songs()->count() > 0) ? '' : 'disabled' */ ?>"><span class="fa fa-sign-out"></span> <?= $this->translate('logout') ?></a>
+                    <a href="<?= $this->pathFor('auth_session_logout') ?>" class="button large glossy-button glossy-button--primary <?php /*= ((int)$this->playlist->songs()->count() > 0) ? '' : 'disabled' */ ?>"><span class="fa fa-sign-out"></span> <?= $this->translate('logout') ?></a>
                 <?php else: ?>
-                    <a href="<?= $this->pathFor('auth_session_login') ?>" class="button large <?php /*= ((int)$this->playlist->songs()->count() > 0) ? '' : 'disabled' */ ?>"><span class="fa fa-sign-in"></span> <?= $this->translate('login') ?></a>
+                    <a href="<?= $this->pathFor('auth_session_login') ?>" class="button large glossy-button glossy-button--primary <?php /*= ((int)$this->playlist->songs()->count() > 0) ? '' : 'disabled' */ ?>"><span class="fa fa-sign-in"></span> <?= $this->translate('login') ?></a>
                 <?php endif ?>
             </div>
         </div>

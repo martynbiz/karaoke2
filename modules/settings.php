@@ -4,9 +4,11 @@ return [
     'settings' => [
 
         // directories
-        'modules_dir' => APPLICATION_PATH . '/modules/',
-        'migrations_dir' => APPLICATION_PATH . '/db/migrations/',
-        'tests_dir' => APPLICATION_PATH . '/tests/',
+        'folders' => [
+            'modules' => APPLICATION_PATH . '/modules/',
+            'db' => APPLICATION_PATH . '/db/',
+            'tests' => APPLICATION_PATH . '/tests/',
+        ],
 
         'modules' => [
             'martynbiz-core' => 'MartynBiz\\Slim\\Module\\Core\\Module',

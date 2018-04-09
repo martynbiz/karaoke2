@@ -1,7 +1,5 @@
 TODO
 
-auth modules
-- copy files (settings, templates, tests, db files)
 - we need a finalize method in modules (e.g. register events )
 - move folder into vendor/../martynbiz/slim-module-auth/modules
 - register send email (disabled)
@@ -9,7 +7,9 @@ auth modules
 - add to packagist with tags
 - give settings namespace e.g. martynbiz-auth => [...], translations too
 - how to handle translations in vendor/../slim-module-xxx/src
-- what to do with db files??
+- make skeleton repo for budget, etc
+- use auth/register test traits
+- remove register
 
 build skeleton app
 write tests: csrf,

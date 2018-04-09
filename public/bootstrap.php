@@ -90,7 +90,7 @@ $appSettings = require APPLICATION_PATH . '/modules/settings.php';
 // Module settings (autoload)
 $moduleSettings = [];
 foreach (array_keys($appSettings['settings']['modules']) as $dir) {
-    if ($path = realpath($appSettings['settings']['modules_dir'] . $dir . '/settings.php')) {
+    if ($path = realpath($appSettings['settings']['folders']['modules'] . $dir . '/settings.php')) {
         $moduleSettings = array_merge_recursive($moduleSettings, require $path);
     }
 }
