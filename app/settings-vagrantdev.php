@@ -4,7 +4,7 @@ return [
         'displayErrorDetails' => true, // set to false in production
 
         'debugbar' => [
-            'enabled' => false,
+            'enabled' => true,
         ],
 
         'eloquent' => [

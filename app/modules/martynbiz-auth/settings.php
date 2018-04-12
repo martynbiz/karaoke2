@@ -13,7 +13,7 @@ return [
 
             'base_path' => '/auth',
 
-            'redirect_after_register' => 'console_home',
+            // 'redirect_after_register' => 'console_home',
             'redirect_after_login' => 'console_home',
             'redirect_after_logout' => 'auth_session_login',
 

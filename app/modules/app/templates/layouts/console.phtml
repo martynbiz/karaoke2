@@ -11,11 +11,11 @@
         <!-- <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet"> -->
         <?php $this->stop() ?>
 
-        <?php //if (APPLICATION_ENV != ENV_PRODUCTION) echo $this->debugbar->renderHead(); ?>
+        <?php if (APPLICATION_ENV != ENV_PRODUCTION) echo $this->debugbar->renderHead(); ?>
     </head>
 
     <body>
-        <div class="top-bar margin-bottom" data-sticky data-options="marginTop:0;">
+        <div class="top-bar margin-bottom padding-y" data-sticky data-options="marginTop:0;">
             <div class="top-bar-left">
                 <a href="<?= $this->pathFor('console_home') ?>" class="button large glossy-button glossy-button--primary <?= $this->disable_home_button ? 'disabled' : '' ?>"><span class="fa fa-search"></span> <?= $this->translate('main_menu') ?></a>
             </div>
@@ -61,6 +61,6 @@
 
         <?php $this->stop() ?>
 
-        <?php //if (APPLICATION_ENV != ENV_PRODUCTION) echo $this->debugbar->render(); ?>
+        <?php if (APPLICATION_ENV != ENV_PRODUCTION) echo $this->debugbar->render(); ?>
     </body>
 </html>
