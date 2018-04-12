@@ -5,7 +5,7 @@ return [
         // Renderer settings
         'renderer' => [
             'folders' => [
-                'martynbiz-auth' => APPLICATION_PATH . '/modules/martynbiz-auth/templates',
+                'martynbiz-auth' => APPLICATION_PATH . '/app/modules/martynbiz-auth/templates',
             ],
         ],
 

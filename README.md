@@ -1,19 +1,12 @@
 TODO
 
-- we need a finalize method in modules (e.g. register events )
-- move folder into vendor/../martynbiz/slim-module-auth/modules
+- move folders into vendor/../martynbiz/slim-module-auth/modules
 - register send email (disabled)
-- slim/csrf
-- add to packagist with tags
-- give settings namespace e.g. martynbiz-auth => [...], translations too
-- how to handle translations in vendor/../slim-module-xxx/src
+- csrf middleware
 - make skeleton repo for budget, etc
 - use auth/register test traits
-- remove register
-
-build skeleton app
-write tests: csrf,
-test app with media/ folder
+- karaoke party! (testing)
+- have settings in modules for environments (e.g. /app/modules/karaoke/settings-vagrantdev.php)
 
 # My Homepage #
 

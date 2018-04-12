@@ -5,7 +5,7 @@ return [
 
         // directories
         'folders' => [
-            'modules' => APPLICATION_PATH . '/modules/',
+            'modules' => APPLICATION_PATH . '/app/modules/',
             'db' => APPLICATION_PATH . '/db/',
             'tests' => APPLICATION_PATH . '/tests/',
         ],
