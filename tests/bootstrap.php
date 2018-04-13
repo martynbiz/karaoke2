@@ -4,6 +4,11 @@
 // ini_set('display_errors', '1');
 // ini_set('display_startup_errors', '1');
 
+// Environments
+define('ENV_PRODUCTION', 'production');
+define('ENV_TESTING', 'testing');
+define('ENV_DEVELOPMENT', 'development');
+
 // Define path to application directory
 defined('APPLICATION_PATH')
     || define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/..'));
