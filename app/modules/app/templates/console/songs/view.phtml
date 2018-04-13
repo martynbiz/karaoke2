@@ -30,7 +30,9 @@ $artist = $song->artist;
             </ul>
             <hr>
             <form action="<?= $this->pathFor('console_playlists_add_song', ['song_id' => $song->id]) ?>" method="post" id="songs_queue_form">
-                <input type="hidden" name="<?= $this->csrf_name ?>" value="<?= $this->csrf_value ?>">
+
+                <?= $this->insert('martynbiz-core::partials/csrf_fields.phtml') ?>
+
                 <button name="song_id" value="<?= $song->id ?>" class="button large"><span class="fa fa-rss"></span> <?= $this->translate('add_to_queue') ?></button>
             </form>
             </ul>

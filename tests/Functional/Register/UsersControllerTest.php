@@ -5,14 +5,14 @@ use Tests\Functional\BaseTestCase;
 
 class UsersControllerTest extends BaseTestCase
 {
-    public function testGetRegister()
-    {
-        $response = $this->runApp('GET', '/register/users/register');
-
-        // assertions
-        $this->assertEquals(200, $response->getStatusCode());
-        $this->assertQuery('form#register_form', (string)$response->getBody()); // has form
-    }
+    // public function testGetRegister()
+    // {
+    //     $response = $this->runApp('GET', '/register/users/register');
+    //
+    //     // assertions
+    //     $this->assertEquals(200, $response->getStatusCode());
+    //     $this->assertQuery('form#register_form', (string)$response->getBody()); // has form
+    // }
 
     public function testPostRegisterWithValidData()
     {
@@ -22,28 +22,28 @@ class UsersControllerTest extends BaseTestCase
         $this->assertEquals(302, $response->getStatusCode());
     }
 
-    /**
-     * @dataProvider getInvalidData
-     */
-    public function testPostRegisterWithInvalidData($firstName, $lastName, $email, $password, $agreement, $moreInfo)
-    {
-        $userValues = [
-            'first_name' => $firstName,
-            'last_name' => $lastName,
-            'email' => $email,
-            'password' => $password,
-            'agreement' => $agreement,
-            'more_info' => $moreInfo,
-        ];
-        if (!$agreement) unset($userValues['agreement']);
-
-        $response = $this->runApp('POST', '/register/users/register', $userValues);
-
-        // assertions
-        $this->assertEquals(200, $response->getStatusCode());
-        $this->assertQuery('form#register_form', (string)$response->getBody()); // has form
-        $this->assertQuery('.callout.alert', (string)$response->getBody()); // showing errors
-    }
+    // /**
+    //  * @dataProvider getInvalidData
+    //  */
+    // public function testPostRegisterWithInvalidData($firstName, $lastName, $email, $password, $agreement, $moreInfo)
+    // {
+    //     $userValues = [
+    //         'first_name' => $firstName,
+    //         'last_name' => $lastName,
+    //         'email' => $email,
+    //         'password' => $password,
+    //         'agreement' => $agreement,
+    //         'more_info' => $moreInfo,
+    //     ];
+    //     if (!$agreement) unset($userValues['agreement']);
+    //
+    //     $response = $this->runApp('POST', '/register/users/register', $userValues);
+    //
+    //     // assertions
+    //     $this->assertEquals(200, $response->getStatusCode());
+    //     $this->assertQuery('form#register_form', (string)$response->getBody()); // has form
+    //     $this->assertQuery('.callout.alert', (string)$response->getBody()); // showing errors
+    // }
 
 
 
