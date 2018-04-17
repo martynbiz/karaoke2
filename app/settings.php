@@ -14,7 +14,7 @@ return [
             'martynbiz-core' => 'MartynBiz\\Slim\\Module\\Core\\Module',
             'martynbiz-auth' => 'MartynBiz\\Slim\\Module\\Auth\\Module',
             'martynbiz-register' => 'MartynBiz\\Slim\\Module\\Register\\Module',
-            'app' => 'App\\Module',
+            'karaoke' => 'MartynBiz\\Slim\\Module\\Karaoke\\Module',
         ],
 
         'song_files' => [

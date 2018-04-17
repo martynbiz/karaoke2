@@ -16,6 +16,8 @@ class UsersControllerTest extends BaseTestCase
 
     public function testPostRegisterWithValidData()
     {
+        $container = $this->app->getContainer();
+
         $response = $this->runApp('POST', '/register/users/register', static::getUserValues());
 
         // assertions

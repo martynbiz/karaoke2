@@ -8,5 +8,9 @@ return [
             'username'  => 'root',
             'password'  => 'vagrant1',
         ],
+
+        'csrf' => [
+            'enabled' => false,
+        ],
     ],
 ];

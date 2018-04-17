@@ -10,13 +10,13 @@ use Symfony\Component\DomCrawler\Crawler;
 
 use MartynBiz\Slim\Module\Auth\Model\User;
 
-use App\Model\Song;
-use App\Model\Language;
-use App\Model\SongMeta;
-use App\Model\ArtistMeta;
-use App\Model\Artist;
-use App\Model\Tag;
-use App\Model\Playlist;
+use MartynBiz\Slim\Module\Karaoke\Model\Song;
+use MartynBiz\Slim\Module\Karaoke\Model\Language;
+use MartynBiz\Slim\Module\Karaoke\Model\SongMeta;
+use MartynBiz\Slim\Module\Karaoke\Model\ArtistMeta;
+use MartynBiz\Slim\Module\Karaoke\Model\Artist;
+use MartynBiz\Slim\Module\Karaoke\Model\Tag;
+use MartynBiz\Slim\Module\Karaoke\Model\Playlist;
 
 /**
  * This is an example class that shows how you could set up a method that
@@ -26,13 +26,6 @@ use App\Model\Playlist;
  */
 class BaseTestCase extends \PHPUnit_Framework_TestCase
 {
-    /**
-     * Use middleware when running application?
-     *
-     * @var bool
-     */
-    protected $withMiddleware = true;
-
     /**
      * Useful to have $app here so we can access during tests
      *
@@ -46,42 +39,42 @@ class BaseTestCase extends \PHPUnit_Framework_TestCase
     protected $user = null;
 
     /**
-     * @var App\Model\Song
+     * @var MartynBiz\Slim\Module\Auth\Karaoke\Song
      */
     protected $song = null;
 
     /**
-     * @var App\Model\Song
+     * @var MartynBiz\Slim\Module\Auth\Karaoke\Song
      */
     protected $song2 = null;
 
     /**
-     * @var App\Model\Artist
+     * @var MartynBiz\Slim\Module\Auth\Karaoke\Artist
      */
     protected $artist = null;
 
     /**
-     * @var App\Model\Artist
+     * @var MartynBiz\Slim\Module\Auth\Karaoke\Artist
      */
     protected $artist2 = null;
 
     /**
-     * @var App\Model\Meta
+     * @var MartynBiz\Slim\Module\Auth\Karaoke\Meta
      */
     protected $meta = null;
 
     /**
-     * @var App\Model\Language
+     * @var MartynBiz\Slim\Module\Auth\Karaoke\Language
      */
     protected $language = null;
 
     /**
-     * @var App\Model\Tag
+     * @var MartynBiz\Slim\Module\Auth\Karaoke\Tag
      */
     protected $tag = null;
 
     /**
-     * @var App\Model\Tag
+     * @var MartynBiz\Slim\Module\Auth\Karaoke\Tag
      */
     protected $tagInvalid = null;
 
@@ -97,7 +90,7 @@ class BaseTestCase extends \PHPUnit_Framework_TestCase
         $moduleSettings = [];
         foreach (array_keys($appSettings['settings']['modules']) as $dir) {
             if ($path = realpath($appSettings['settings']['folders']['modules'] . $dir . '/settings.php')) {
-                $moduleSettings = array_merge_recursive($moduleSettings, require $path);
+                $moduleSettings = array_replace_recursive($moduleSettings, require $path);
             }
         }
 
@@ -108,7 +101,7 @@ class BaseTestCase extends \PHPUnit_Framework_TestCase
         }
 
         // Instantiate the app
-        $settings = array_merge_recursive($moduleSettings, $appSettings, $envSettings);
+        $settings = array_replace_recursive($moduleSettings, $appSettings, $envSettings);
         $app = new \Slim\App($settings);
 
         // // Register middleware

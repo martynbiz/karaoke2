@@ -18,3 +18,5 @@ defined('APPLICATION_ENV')
     || define('APPLICATION_ENV', (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'vagranttest'));
 
 require APPLICATION_PATH . '/vendor/autoload.php';
+
+if (! isset($_SESSION)) $_SESSION = [];
